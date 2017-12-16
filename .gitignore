@@ -39,3 +39,6 @@ nosetests.xml
 
 # pipenv custom environment variables
 .env
+
+# Sphinx builds
+_build

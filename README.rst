@@ -6,14 +6,27 @@ LibreAuth is a collection of tools for user authentication written in Rust.
 
 .. image:: https://api.travis-ci.org/breard-r/py-libreauth.png
     :target: https://travis-ci.org/breard-r/py-libreauth
+    :alt: Build status
+
+.. image:: https://readthedocs.org/projects/libreauth/badge/?version=latest
+    :target: http://libreauth.readthedocs.io/en/latest/?badge=latest
+    :alt: Documentation Status
+
+.. image:: https://img.shields.io/pypi/status/libreauth.svg
+    :target: https://pypi.python.org/pypi/libreauth
+    :alt: Project status
 
 .. image:: https://img.shields.io/pypi/v/libreauth.svg
     :target: https://pypi.python.org/pypi/libreauth
+    :alt: Version
 
-.. image:: https://img.shields.io/pypi/status/libreauth.svg
+.. image:: https://img.shields.io/pypi/pyversions/libreauth.svg
+    :target: https://pypi.python.org/pypi/libreauth
+    :alt: Python versions
 
 .. image:: https://img.shields.io/pypi/l/libreauth.svg
     :target: http://cecill.info/index.en.html
+    :alt: CeCILL license
 
 
 Features
@@ -46,9 +59,3 @@ This is a work in progress. Some features may not be available.
   - ✗ customizable output length
   - ✗ customizable output alphabet
   - ✗ customizable positive and negative period tolerance
-
-
-Requirements
-------------
-
-LibreAuth 0.6 or higher.
