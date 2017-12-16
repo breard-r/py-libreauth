@@ -8,8 +8,8 @@ LibreAuth is a collection of tools for user authentication written in Rust.
     :target: https://travis-ci.org/breard-r/py-libreauth
     :alt: Build status
 
-.. image:: https://readthedocs.org/projects/libreauth/badge/?version=latest
-    :target: http://libreauth.readthedocs.io/en/latest/?badge=latest
+.. image:: https://readthedocs.org/projects/py-libreauth/badge/?version=latest
+    :target: http://py-libreauth.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
 
 .. image:: https://img.shields.io/pypi/status/libreauth.svg
