@@ -13,7 +13,7 @@ This is a work in progress. Some features may not be available.
 * Password / passphrase authentication
 
   - ✓ no character-set limitation
-  - ✓ reasonable lenth limit (`security vs. DOS <http://arstechnica.com/security/2013/09/long-passwords-are-good-but-too-much-length-can-be-bad-for-security/>`_
+  - ✓ reasonable lenth limit (`security vs. DOS <http://arstechnica.com/security/2013/09/long-passwords-are-good-but-too-much-length-can-be-bad-for-security/>`_)
   - ✓ strong, evolutive and retro-compatible password hashing functions
   - ✓ optional NIST Special Publication 800-63B compatibility
 
