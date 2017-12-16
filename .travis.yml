@@ -4,12 +4,16 @@ python:
     - "3.3"
     - "3.4"
     - "3.5"
-    - "3.5-dev"
     - "3.6"
     - "3.6-dev"
     - "3.7-dev"
     - "nightly"
     - "pypy3"
+
+env:
+  global:
+    - PATH="$HOME/.cargo/bin:$PATH"
+    - LIBREAUTH_LIB_PATH="./liblibreauth.so"
 
 script: python -m unittest discover
 
@@ -22,8 +26,5 @@ before_script:
     - tar -xvf '/tmp/libreauth.tar.gz'
     - cd 'libreauth-0.6.0'
     - make
-    - sudo make install
+    - cp 'target/release/liblibreauth.so' '../liblibreauth.so'
     - cd ..
-
-env:
-    - PATH="$HOME/.cargo/bin:$PATH"
