@@ -4,6 +4,17 @@ Python LibreAuth
 Python bindings to the LibreAuth library.
 LibreAuth is a collection of tools for user authentication written in Rust.
 
+.. image:: https://api.travis-ci.org/breard-r/py-libreauth.png
+    :target: https://travis-ci.org/breard-r/py-libreauth
+
+.. image:: https://img.shields.io/pypi/v/libreauth.svg
+    :target: https://pypi.python.org/pypi/libreauth
+
+.. image:: https://img.shields.io/pypi/status/libreauth.svg
+
+.. image:: https://img.shields.io/pypi/l/libreauth.svg
+    :target: http://cecill.info/index.en.html
+
 
 Features
 --------
