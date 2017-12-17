@@ -63,10 +63,7 @@ class LibreAuthPassError(Exception):
         else:
             self.message = 'unknown error'
 
-def password_hash(password):
-    return password_hash_standard(password, NOSTANDARD)
-
-def password_hash_standard(password, standard):
+def password_hash(password, standard=NOSTANDARD):
     pass_len = len(password)
     if pass_len < PASSWORD_MIN_LEN:
         raise LibreAuthPassError(1)

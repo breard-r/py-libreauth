@@ -45,7 +45,7 @@ class PasswordTestCase(unittest.TestCase):
     def test_std(self):
         p = b'my super password'
         for std in (NOSTANDARD, NIST80063B, ):
-            h = password_hash_standard(p, NIST80063B)
+            h = password_hash(p, standard=std)
             self.assertTrue(h.startswith('$'))
             self.assertEqual(len(h.split('$')), 5)
             self.assertTrue(is_valid(p, h))
