@@ -1,5 +1,5 @@
-# Copyright Rodolphe Breard (2017)
-# Author: Rodolphe Breard (2017)
+# Copyright Rodolphe Breard (2017-2018)
+# Author: Rodolphe Breard (2017-2018)
 #
 # This software is a computer library whose purpose is to offer a
 # collection of tools for user authentication.
@@ -33,14 +33,24 @@
 from libreauth.password import *
 import unittest
 
+
 class PasswordTestCase(unittest.TestCase):
-    def test_default(self):
+    def test_hash(self):
         p = b'my super password'
         h = password_hash(p)
         self.assertTrue(h.startswith('$'))
         self.assertEqual(len(h.split('$')), 5)
+
+    def test_valid(self):
+        p = b'my super password'
+        h = password_hash(p)
         self.assertTrue(is_valid(p, h))
-        self.assertFalse(is_valid(b'bad password', h))
+
+    def test_invalid(self):
+        p = b'bad password'
+        h = '$argon2$len=32,passes=3,lanes=4,mem=12$AM4ncnAXFeC9HVVEFhOLeg$' \
+            'PShZis96oh5lL6AQyjOZMS+nvF4b+B/4Rs7+Pncvub0'
+        self.assertFalse(is_valid(p, h))
 
     def test_std(self):
         p = b'my super password'
@@ -51,14 +61,29 @@ class PasswordTestCase(unittest.TestCase):
             self.assertTrue(is_valid(p, h))
             self.assertFalse(is_valid(b'bad password', h))
 
-    def test_invalid_pass_len(self):
+    def test_pass_too_short(self):
         for p in (b'', b'a', b'1234567'):
             with self.assertRaises(LibreAuthPassError) as cm:
                 password_hash(p)
             e = cm.exception
             self.assertEqual(e.code, 1)
+
+    def test_pass_too_long(self):
         for p in (b'a' * 129, b'1' * 256):
             with self.assertRaises(LibreAuthPassError) as cm:
                 password_hash(p)
             e = cm.exception
             self.assertEqual(e.code, 2)
+
+    def test_invalid_format(self):
+        p = b'my super password'
+        refs = (
+            '',
+            'plop',
+            '$argon3$len=32,passes=3,lanes=4,mem=12$AM4ncnAXFeC9HVVEFhOLeg$' \
+            'PShZis96oh5lL6AQyjOZMS+nvF4b+B/4Rs7+Pncvub0',
+            '$argon2$len=32,passes=3;lanes=4,mem=12$AM4ncnAXFeC9HVVEFhOLeg$' \
+            'PShZis96oh5lL6AQyjOZMS+nvF4b+B/4Rs7+Pncvub0',
+        )
+        for h in refs:
+            self.assertFalse(is_valid(p, h))
